@@ -5,6 +5,8 @@ DEM coregistration functions.
 
 Author(s):
     Erik Schytt Holmlund (holmlund@vaw.baug.ethz.ch)
+    Romain Hugonnet ()
+    Diego Cusicanqui (diego.cusicanqui@univ-grenoble-alpes.fr)
 """
 from __future__ import annotations
 import rasterio as rio
