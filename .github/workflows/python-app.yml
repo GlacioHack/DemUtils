@@ -1,0 +1,29 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: build-demutils-main
+
+on:
+  push:
+    branches: [ ci-testing ]
+  pull_request:
+    branches: [ ci-testing ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        $CONDA/bin/conda env update --file environment.yml --name base
+        $CONDA/bin/pip install .
+    - name: Test with pytest
+      run: |
+        $CONDA/bin/pytest -rA
